@@ -1,0 +1,11 @@
+# Auth0 x HTB CTF
+# EsQueElle
+Avec un gobuster on trouve `/register`
+Je peux créer un compte... mais que faire avec ?
+	Payload => username=blabla&password=blabla
+	Idées:
+		- Ajouter `admin=true` dans le payload ou un truc dans le style
+			Avec `&admin=true` j'ai un `Successfully registered`
+			Avec `&administrator=true` j'ai un `Successfully registered`
+			Avec `&lol=lol` j'ai un `Successfully registered`... 
+			Visiblement je peux mettre n'importe quoi...
