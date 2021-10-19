@@ -9,3 +9,15 @@ Je peux créer un compte... mais que faire avec ?
 			Avec `&administrator=true` j'ai un `Successfully registered`
 			Avec `&lol=lol` j'ai un `Successfully registered`... 
 			Visiblement je peux mettre n'importe quoi...
+
+... ET BA IL SUFFIT DE LIRE EN FAIT
+EsQueElle => Es Que Elle => S Q L => SQL PUTAIN...
+
+Du coup, une fois un utilisateur créé (ex: Mike), sur la page `/login` il suffit de faire une injection SQL
+
+username:
+	mike' OR 1=1; --
+password:
+	lol
+
+Et voila le flag <3
