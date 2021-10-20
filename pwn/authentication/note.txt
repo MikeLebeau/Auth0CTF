@@ -1,0 +1,9 @@
+# Auth0 X HTB CTF
+# PWN Authentication
+
+Download l'executable
+L'ouvrir avec un décompilo, Ghidra dans mon cas
+
+Après une ptite analyse je vois que dans la méthode `main`, il y a un `strcmp` sur l'input du password et `s3cr3t`
+
+Ensuite il faut taper sur l'url avec en `pathParam` -> `?password=s3cr3t`
