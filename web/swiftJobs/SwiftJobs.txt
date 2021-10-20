@@ -1,0 +1,25 @@
+# Auth0 X HTB CTF
+# Swift Jobs
+Petite analyse des fichiers à la main
+Tout a l'air cool, j'ai juste modifié le `BDPASS`, au lieu d'avoir $RANDOM j'ai mis `azerty` (ne sait on jamais ;p )
+
+J'ai lancé le script build-docker.sh, qui me build une image docker et lance un container
+
+Petite analyse a la main du site http://localhost:1337
+Je vois dans les requetes qu'il y a un `POST sur /api/list` avec en payload `{ "order":"date DESC" }`, je pense que c'est part là qu'on va attaquer \o/
+
+Dans le fichier challenge/database.sql je vois que la table `users` existe, je vais essayer de recupèrer des infos via une requete UNION
+Idée de la requete SQL:
+	SELECT 
+		id,
+		title,
+		salary,
+		location,
+		type,
+		date
+	FROM
+		jobs
+	ORDER BY 
+		<L'input => date DESC>;
+
+Test: date DESC UNION (SELECT NULL, username, NULL, password, NULL, NULL FROM users)
